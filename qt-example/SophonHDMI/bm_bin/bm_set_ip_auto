@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ $# -lt 1   ] ; then
+    echo "eg: bm_set_ip_auto eth0"
+    exit -1
+fi
+
+
+device=$1
+sudo rm -rf /etc/network/interfaces.d/$device
+sync
+sudo ip addr flush dev eth0
+sudo service networking restart
+sudo systemctl restart NetworkManager
+#sudo ifdown eth0
+#sudo ifup eth0
+

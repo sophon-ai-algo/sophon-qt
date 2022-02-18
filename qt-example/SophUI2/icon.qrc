@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/icon"/>
+    <qresource prefix="/">
+        <file>resource/bg.png</file>
+        <file>resource/1-gongge.png</file>
+        <file>resource/4-gongge.png</file>
+        <file>resource/16-gongge.png</file>
+        <file>resource/xiangqianxuanze.png</file>
+        <file>resource/xianghouxuanze.png</file>
+        <file>resource/setup.png</file>
+        <file>resource/moshengren-icon.png</file>
+        <file>resource/channel_bg.png</file>
+        <file>resource/button-quxiao.png</file>
+        <file>resource/button-xuanze.png</file>
+        <file>resource/Checkbox-weixuanze.png</file>
+        <file>resource/Checkbox-xuanze.png</file>
+    </qresource>
+</RCC>

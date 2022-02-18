@@ -1,0 +1,29 @@
+#!/bin/bash
+
+if [ $# -lt 4  ] ; then
+    echo "bm_set_ip net_device ip netmask gateway dns"
+    echo "eg: bm_set_ip eth0 192.168.1.100 255.255.255.0 192.168.1.1 192.168.1.1"
+    exit -1
+fi
+
+
+device=$1
+ip=$2
+netmask=$3
+gateway=$4
+dns=$5
+
+device_path="/etc/network/interfaces.d/$device"
+
+echo  "auto $device" | sudo tee $device_path
+echo  "iface $device inet static" |sudo tee -a $device_path
+echo  "        address $ip" |sudo tee -a $device_path
+echo  "        netmask $netmask" |sudo tee -a $device_path
+if [ $device == "eth0"  ];then
+    echo  "        gateway $gateway" |sudo tee -a $device_path
+fi
+echo "        dns-nameservers $dns" |sudo tee -a $device_path
+
+sudo ip addr flush dev $device 
+sudo service networking restart
+

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+cat /system/data/buildinfo.txt
+kern_version=$(uname -a)
+echo "KernelVersion : $kern_version"
+hw_version=$(awk "/board type/" /sys/bus/i2c/devices/1-0017/information |awk -F \"  '{ print $4}')
+echo "HWVersion: $hw_version"
+mcu_version=$(awk "/mcu version/" /sys/bus/i2c/devices/1-0017/information |awk -F \"  '{ print $4}')
+echo "MCUVersion: $mcu_version"

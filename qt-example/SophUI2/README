@@ -1,0 +1,18 @@
+此git为库克app的HDMI端qt显示程序
+
+编译方法:
+编译依赖qtbase-5.14.tgz 中的程序和文件
+./install/bin/qmake SophonOS.pro -spec linux-aarch64-gnu-g++ CONFIG+=qtquickcompiler
+make 
+
+运行脚本：
+先保证已经加载FL2000驱动，出现/dev/fl2000-0设备
+export QTDIR=/usr/lib/aarch64-linux-gnu								#qtsdk在系统上的路径
+export QT_QPA_FONTDIR=$QTDIR/fonts									#字体文件路径	
+export QT_QPA_PLATFORM_PLUGIN_PATH=$QTDIR/qt5/plugins/				#后端plugin路径
+export LD_LIBRARY_PATH=/system/lib:$LD_LIBRARY_PATH					#当启用硬解时,依赖库路径
+export QT_QPA_PLATFORM=linuxfb:fb=/dev/fl2000-0						#framebuffer驱动
+export QWS_MOUSE_PROTO=/dev/input/event3							#鼠标输入设备句柄
+./SophonOS															#启动应用程序
+
+
