@@ -40,7 +40,7 @@ A: cp SophonHDMI.tgz to SE5.
    2.cd SophonHDMI
    3.sudo -s; ./run_hdmi_show.sh
 
-Q：hdmi not output, error cases1.
+Q：hdmi no output, no error log (kenerl log)?
 
 A: hdmi only output 1080p 60hz，don't use vga transform，becasuse vga maybe not support 1080p.  
 
