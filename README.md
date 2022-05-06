@@ -28,7 +28,6 @@
 └── README.md
 
 
-
 Q: how to complie qt app?
 
 A: read AIBOX-qt配置.pdf
@@ -44,3 +43,5 @@ Q：hdmi no output, no error log (kenerl log)?
 
 A: hdmi only output 1080p 60hz，don't use vga transform，becasuse vga maybe not support 1080p.  
 
+Q: ERROR "Failed to open framebuffer /dev/fl2000-0 (No such file or directory)   linuxfb:Failed to initialize screen"
+A:  首先使用 lsmod 命令检查 fl2000驱动是否加载。如果没有加载使用 sudo insmod /system/data/fl2000.ko手动加载
